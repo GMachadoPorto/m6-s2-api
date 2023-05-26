@@ -13,6 +13,7 @@ import {
   deleteUserController,
   listUsersController,
   retrieveUserController,
+  retrieveUserWithTokenController,
   updateUserController,
 } from "../controllers";
 
@@ -25,6 +26,11 @@ usersRoutes.post(
   createUserController
 );
 usersRoutes.get("", listUsersController);
+usersRoutes.get(
+  "/retrieveData",
+  verifyTokenIsValid,
+  retrieveUserWithTokenController
+);
 usersRoutes.get(
   "/:id",
   verifyTokenIsValid,

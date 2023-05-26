@@ -5,15 +5,11 @@ import { listContactSchemaReturn } from "../../schemas";
 export const listContactsService = async (
   userId: number
 ): Promise<iContactReturn[]> => {
-  const userData: iUser | null = await userRepository.findOne({
-    where: {
-      id: userId,
-    },
-  });
-
   const contacts: iContact[] = await contactRepository.find({
     where: {
-      user: userData!,
+      user: {
+        id: userId,
+      },
     },
     relations: {
       user: true,

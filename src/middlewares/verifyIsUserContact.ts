@@ -15,15 +15,16 @@ export const verifyIsUserContact = async (
   const contact: iContact | null = await contactRepository.findOne({
     where: {
       id: contactId,
+      user: {
+        id: userId,
+      },
     },
     relations: {
       user: true,
     },
   });
 
-  const userContactId: number = contact!.user.id;
-
-  if (userId !== userContactId) {
+  if (!contact) {
     throw new AppError("Insuficient permission", 403);
   }
 

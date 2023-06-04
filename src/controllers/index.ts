@@ -12,6 +12,7 @@ import {
   retrieveUserController,
   updateUserController,
   deleteUserController,
+  retrieveUserWithTokenController,
 } from "./users.controller";
 
 export {
@@ -20,6 +21,7 @@ export {
   retrieveUserController,
   updateUserController,
   deleteUserController,
+  retrieveUserWithTokenController,
   userLoginController,
   createContactController,
   listContactsController,

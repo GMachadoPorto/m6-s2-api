@@ -7,6 +7,7 @@ import {
   updateUserService,
 } from "../services";
 import { iUserReturn } from "../interfaces";
+import { retrieveUserWithTokenService } from "../services/users";
 
 const createUserController = async (
   req: Request,
@@ -24,6 +25,17 @@ const listUsersController = async (
   const users: iUserReturn[] = await listUsersService();
 
   return res.json(users);
+};
+
+const retrieveUserWithTokenController = async (
+  req: Request,
+  res: Response
+): Promise<Response> => {
+  const userId: number = res.locals.user.id;
+
+  const user: iUserReturn = await retrieveUserWithTokenService(userId);
+
+  return res.json(user);
 };
 
 const retrieveUserController = async (
@@ -65,4 +77,5 @@ export {
   retrieveUserController,
   updateUserController,
   deleteUserController,
+  retrieveUserWithTokenController,
 };

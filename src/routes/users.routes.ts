@@ -5,6 +5,7 @@ import {
   verifyIsIdOwner,
   verifyTokenIsValid,
   verifyUserEmailAlreadyExists,
+  verifyUserEmailIsValid,
   verifyUserExists,
 } from "../middlewares";
 import { userSchemaRequest, userAttSchemaRequest } from "../schemas";
@@ -13,6 +14,7 @@ import {
   deleteUserController,
   listUsersController,
   retrieveUserController,
+  retrieveUserWithTokenController,
   updateUserController,
 } from "../controllers";
 
@@ -26,6 +28,11 @@ usersRoutes.post(
 );
 usersRoutes.get("", listUsersController);
 usersRoutes.get(
+  "/retrieveData",
+  verifyTokenIsValid,
+  retrieveUserWithTokenController
+);
+usersRoutes.get(
   "/:id",
   verifyTokenIsValid,
   verifyIsIdOwner,
@@ -38,7 +45,7 @@ usersRoutes.patch(
   verifyTokenIsValid,
   verifyIsIdOwner,
   verifyUserExists,
-  verifyUserEmailAlreadyExists,
+  verifyUserEmailIsValid,
   updateUserController
 );
 usersRoutes.delete(

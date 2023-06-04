@@ -3,6 +3,7 @@ import { listUsersService } from "./listUsers.service";
 import { retrieveUserService } from "./retrieveUser.service";
 import { updateUserService } from "./updateUser.service";
 import { deleteUserService } from "./deleteUser.service";
+import { retrieveUserWithTokenService } from "./retrieveUserWithToken.service";
 
 export {
   createUserService,
@@ -10,4 +11,5 @@ export {
   retrieveUserService,
   updateUserService,
   deleteUserService,
+  retrieveUserWithTokenService,
 };

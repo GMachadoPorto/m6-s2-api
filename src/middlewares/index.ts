@@ -7,6 +7,7 @@ import { verifyIsIdOwner } from "./verifyIsIdOwner";
 import { verifyContactEmailAlreadyExists } from "./verifyContactEmailAlreadyExists";
 import { verifyContactExists } from "./verifyContactExists";
 import { verifyIsUserContact } from "./verifyIsUserContact";
+import { verifyUserEmailIsValid } from "./verifyUserEmailIsValid";
 
 export {
   handleErrors,
@@ -18,4 +19,5 @@ export {
   verifyContactEmailAlreadyExists,
   verifyContactExists,
   verifyIsUserContact,
+  verifyUserEmailIsValid,
 };

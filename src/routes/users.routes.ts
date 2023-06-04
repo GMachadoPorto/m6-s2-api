@@ -5,6 +5,7 @@ import {
   verifyIsIdOwner,
   verifyTokenIsValid,
   verifyUserEmailAlreadyExists,
+  verifyUserEmailIsValid,
   verifyUserExists,
 } from "../middlewares";
 import { userSchemaRequest, userAttSchemaRequest } from "../schemas";
@@ -44,7 +45,7 @@ usersRoutes.patch(
   verifyTokenIsValid,
   verifyIsIdOwner,
   verifyUserExists,
-  verifyUserEmailAlreadyExists,
+  verifyUserEmailIsValid,
   updateUserController
 );
 usersRoutes.delete(
